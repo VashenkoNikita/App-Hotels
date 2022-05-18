@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Belleclaire Hotel",
+        "hotelPhoto": "https://reghotel.com/wp-content/uploads/2019/09/krasivie.jpg",
+        "id": 1
+    },
+    {
+        "name": "Americana Inn",
+        "hotelPhoto": "https://www.visit-belarus.com/wp-content/uploads/2018/10/europe-hotel-minsk-outside-1.jpg",
+        "id": 2
+    },
+    {
+        "name": "Best Western President Hotel at Times Square",
+        "hotelPhoto": "https://www.onetwotrip.com/ru/blog/wp-content/uploads/2018/03/7-star-hotels.jpg",
+        "id": 3
+    },
+    {
+        "name": "Days Hotel Broadway at 94th Street",
+        "hotelPhoto": "https://level.travel/media/wp-content/uploads/2019/04/852.jpeg",
+        "id": 4
+    },
+    {
+        "name": "Dream",
+        "hotelPhoto": "https://assets.gq.ru/photos/5d9f3e407bab760008187cbe/master/w_1600%2Cc_limit/0.jpg",
+        "id": 5
+    },
+    {
+        "name": "Dream Downtown",
+        "hotelPhoto": "https://piligrim.ua/wp-content/uploads/2020/04/Sol-Nessebar-Palace1.jpg",
+        "id": 6
+    },
+    {
+        "name": "Dream Downtown",
+        "hotelPhoto": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/337857079.jpg?k=ab3f4ade729d33be592399bedc3d952c60d853a9fda265d7ed508737d894ff4a&o=&hp=1",
+        "id": 7
+    }
+]
