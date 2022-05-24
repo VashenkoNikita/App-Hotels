@@ -22,16 +22,16 @@
 		CEE8B30D28294A1400DFBF0D /* HotelProtocolVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8B30C28294A1400DFBF0D /* HotelProtocolVC.swift */; };
 		CEE8B30F28294A2400DFBF0D /* HotelPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8B30E28294A2400DFBF0D /* HotelPresenterProtocol.swift */; };
 		CEE8B31128294B6700DFBF0D /* HotelPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8B31028294B6700DFBF0D /* HotelPresenter.swift */; };
-		CEE8B313282956C900DFBF0D /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8B312282956C900DFBF0D /* Builder.swift */; };
+		CEE8B313282956C900DFBF0D /* AssemblyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8B312282956C900DFBF0D /* AssemblyBuilder.swift */; };
 		CEE8B31A28296FEA00DFBF0D /* DetailVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8B31928296FEA00DFBF0D /* DetailVCPresenter.swift */; };
 		CEE8B31D2829728600DFBF0D /* DetailViewProtocolInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8B31C2829728600DFBF0D /* DetailViewProtocolInput.swift */; };
 		CEE8B31F2829729800DFBF0D /* DetailPresenterProtocolOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8B31E2829729800DFBF0D /* DetailPresenterProtocolOutput.swift */; };
 		CEE8B321282973B200DFBF0D /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8B320282973B200DFBF0D /* NetworkManagerProtocol.swift */; };
-		CEE8B325282973E200DFBF0D /* BuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8B324282973E200DFBF0D /* BuilderProtocol.swift */; };
 		CEE8B3272829789800DFBF0D /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8B3262829789800DFBF0D /* UIViewControllerExtension.swift */; };
 		CEE8B32F28298DD500DFBF0D /* Hotels_InformationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8B32E28298DD500DFBF0D /* Hotels_InformationTests.swift */; };
 		CEE8B33628298F6A00DFBF0D /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8B33528298F6A00DFBF0D /* NetworkManagerMock.swift */; };
 		CEE8B34A2829985F00DFBF0D /* ViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8B3492829985F00DFBF0D /* ViewMock.swift */; };
+		CEF83AA2283C046A00C4297F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF83AA1283C046A00C4297F /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,18 +69,18 @@
 		CEE8B30C28294A1400DFBF0D /* HotelProtocolVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelProtocolVC.swift; sourceTree = "<group>"; };
 		CEE8B30E28294A2400DFBF0D /* HotelPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelPresenterProtocol.swift; sourceTree = "<group>"; };
 		CEE8B31028294B6700DFBF0D /* HotelPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelPresenter.swift; sourceTree = "<group>"; };
-		CEE8B312282956C900DFBF0D /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+		CEE8B312282956C900DFBF0D /* AssemblyBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyBuilder.swift; sourceTree = "<group>"; };
 		CEE8B31928296FEA00DFBF0D /* DetailVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVCPresenter.swift; sourceTree = "<group>"; };
 		CEE8B31C2829728600DFBF0D /* DetailViewProtocolInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewProtocolInput.swift; sourceTree = "<group>"; };
 		CEE8B31E2829729800DFBF0D /* DetailPresenterProtocolOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenterProtocolOutput.swift; sourceTree = "<group>"; };
 		CEE8B320282973B200DFBF0D /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
-		CEE8B324282973E200DFBF0D /* BuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderProtocol.swift; sourceTree = "<group>"; };
 		CEE8B3262829789800DFBF0D /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		CEE8B32C28298DD500DFBF0D /* Hotels InformationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hotels InformationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE8B32E28298DD500DFBF0D /* Hotels_InformationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hotels_InformationTests.swift; sourceTree = "<group>"; };
 		CEE8B33528298F6A00DFBF0D /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
 		CEE8B33F2829956400DFBF0D /* NetworkManagerAsyncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkManagerAsyncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE8B3492829985F00DFBF0D /* ViewMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMock.swift; sourceTree = "<group>"; };
+		CEF83AA1283C046A00C4297F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +132,7 @@
 			children = (
 				CE14CF162827D2550042E601 /* App */,
 				CEE8B31828296FCD00DFBF0D /* Builder */,
+				CEF83AA3283C0E6500C4297F /* Routers */,
 				CE14CF192827D2670042E601 /* Managers */,
 				CE14CF182827D2620042E601 /* Models */,
 				CEE8B31428295FE700DFBF0D /* HotelModule */,
@@ -254,8 +255,7 @@
 		CEE8B31828296FCD00DFBF0D /* Builder */ = {
 			isa = PBXGroup;
 			children = (
-				CEE8B312282956C900DFBF0D /* Builder.swift */,
-				CEE8B323282973CE00DFBF0D /* Protocol */,
+				CEE8B312282956C900DFBF0D /* AssemblyBuilder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -277,14 +277,6 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		CEE8B323282973CE00DFBF0D /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				CEE8B324282973E200DFBF0D /* BuilderProtocol.swift */,
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
 		CEE8B32D28298DD500DFBF0D /* Hotels InformationTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +285,14 @@
 				CEE8B3492829985F00DFBF0D /* ViewMock.swift */,
 			);
 			path = "Hotels InformationTests";
+			sourceTree = "<group>";
+		};
+		CEF83AA3283C0E6500C4297F /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				CEF83AA1283C046A00C4297F /* Router.swift */,
+			);
+			path = Routers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -435,6 +435,7 @@
 				CEE8B30D28294A1400DFBF0D /* HotelProtocolVC.swift in Sources */,
 				CEE8B31D2829728600DFBF0D /* DetailViewProtocolInput.swift in Sources */,
 				CEE8B31F2829729800DFBF0D /* DetailPresenterProtocolOutput.swift in Sources */,
+				CEF83AA2283C046A00C4297F /* Router.swift in Sources */,
 				CEE8B321282973B200DFBF0D /* NetworkManagerProtocol.swift in Sources */,
 				CE14CF002827D1D50042E601 /* SceneDelegate.swift in Sources */,
 				CEE8B3272829789800DFBF0D /* UIViewControllerExtension.swift in Sources */,
@@ -443,8 +444,7 @@
 				CE96F3272827D569005EF74F /* HotelCell.swift in Sources */,
 				CE96F33628285014005EF74F /* HotelPhotoModel.swift in Sources */,
 				CE14CF082827D1D50042E601 /* Hotels_Information.xcdatamodeld in Sources */,
-				CEE8B325282973E200DFBF0D /* BuilderProtocol.swift in Sources */,
-				CEE8B313282956C900DFBF0D /* Builder.swift in Sources */,
+				CEE8B313282956C900DFBF0D /* AssemblyBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

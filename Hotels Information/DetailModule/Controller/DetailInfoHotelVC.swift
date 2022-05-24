@@ -49,17 +49,16 @@ final class DetailInfoHotelVC: UIViewController {
         setupContraintsActivityIndicator(activityIndicator: activityIndicator)
                 
         createConstraint()
-        presenter.setData()
     }
 }
 
 extension DetailInfoHotelVC: DetailViewProtocolInput {
     func getData(dataHotel: HotelModel, imageHotel: HotelPhotoModel) {
-        createLoad(activityIndicator: false, true)
+        createLoadActInd(activityIndIsVisible: false, collecctionIsVisible: true, viewIsVisible: false)
         fetchPhoto(model: imageHotel) { [weak self] dataPhoto in
             DispatchQueue.main.async {
                 self?.imageView.image = UIImage(data: dataPhoto)
-                self?.createLoad(activityIndicator: true, false)
+                self?.createLoadActInd(activityIndIsVisible: true, collecctionIsVisible: false, viewIsVisible: true)
             }
         }
         nameLabel.text = dataHotel.name
@@ -77,7 +76,6 @@ extension DetailInfoHotelVC{
         aboutHotelLabel.translatesAutoresizingMaskIntoConstraints = false
         detailInfoLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        containerView.backgroundColor = .white
         containerView.layer.cornerRadius = 30
         
         view.addSubview(imageView)
@@ -86,48 +84,48 @@ extension DetailInfoHotelVC{
         containerView.addSubview(aboutHotelLabel)
         containerView.addSubview(detailInfoLabel)
         
+        
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             imageView.bottomAnchor.constraint(equalTo: containerView.topAnchor,constant: 30),
-            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
-        NSLayoutConstraint.activate([
+            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
             containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            containerView.heightAnchor.constraint(equalToConstant: 206)
-        ])
-        NSLayoutConstraint.activate([
+            containerView.heightAnchor.constraint(equalToConstant: 206),
+            
             nameLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 35),
             nameLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 24),
-            nameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24)
-        ])
-        NSLayoutConstraint.activate([
+            nameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
+            
             aboutHotelLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,constant: 8),
             aboutHotelLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 24),
-            aboutHotelLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24)
-        ])
-        NSLayoutConstraint.activate([
+            aboutHotelLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
+            
             detailInfoLabel.topAnchor.constraint(equalTo: aboutHotelLabel.bottomAnchor,constant: 8),
             detailInfoLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 24),
-            detailInfoLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
+            detailInfoLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24)
+    
         ])
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        imageView.image = nil
     }
 }
 
 extension DetailInfoHotelVC{
-    private func createLoad(activityIndicator: Bool, _ view: Bool) {
-        self.activityIndicator.isHidden = activityIndicator
-        self.view.isUserInteractionEnabled = view
-        self.imageView.isHidden = view
-        self.containerView.isHidden = view
+    private func createLoadActInd(activityIndIsVisible: Bool, collecctionIsVisible: Bool, viewIsVisible: Bool) {
+        activityIndicator.isHidden = activityIndIsVisible
+        self.view.isUserInteractionEnabled = viewIsVisible
         
-        if activityIndicator{
-            self.activityIndicator.stopAnimating()
+        if activityIndIsVisible {
+            activityIndicator.stopAnimating()
         }else {
-            self.activityIndicator.startAnimating()
+            activityIndicator.startAnimating()
         }
-        
     }
 }

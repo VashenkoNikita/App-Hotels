@@ -9,7 +9,5 @@ import Foundation
 
 protocol DetailPresenterProtocolOutput: AnyObject {
     
-    init(view: DetailViewProtocolInput, networkService: NetworkManagerProtocol, dataHotel: HotelModel, imageHotel: HotelPhotoModel)
-    
-    func setData()
+    init(view: DetailViewProtocolInput, networkService: NetworkManagerProtocol, dataHotel: HotelModel, imageHotel: HotelPhotoModel, router: RouterProtocol)
 }

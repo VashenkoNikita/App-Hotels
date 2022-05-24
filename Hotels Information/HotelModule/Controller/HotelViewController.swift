@@ -11,7 +11,7 @@ final class HotelViewController: UIViewController {
     
     private var collectionView: UICollectionView!
     private let activityIndicator = UIActivityIndicatorView(style: .large)
-    let searchController = UISearchController(searchResultsController: nil)
+    let searchController = UISearchController()
     var presenter: HotelPresenterOutputProtocol!
     var filterInfo: [HotelModel]?
     var filterPhoto: [HotelPhotoModel]?
@@ -20,14 +20,12 @@ final class HotelViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        
         setupCollectionView()
         createSecrchBar()
         setupContraintsActivityIndicator(activityIndicator: activityIndicator)
         changeTheDataFilter()
     }
 }
-
 extension HotelViewController{
     private func setupCollectionView () {
         let layout = UICollectionViewFlowLayout()
@@ -74,7 +72,6 @@ extension HotelViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HotelCell.reuseId, for: indexPath) as? HotelCell else {fatalError("Cell is not create")}
-                
         return cellConfiguration(cell: cell, indexPath: indexPath)
     }
 }
@@ -91,7 +88,7 @@ extension HotelViewController: UICollectionViewDelegate {
             guard let filterPhoto = filterPhoto else { return }
             infoHotel = filterInfo[indexPath.row]
             photoHotel = filterPhoto[indexPath.row]
-        }else {
+        } else {
             infoHotel = presenter.modelInfo?[indexPath.row]
             photoHotel = presenter.modelImage?[indexPath.row]
         }
@@ -99,9 +96,7 @@ extension HotelViewController: UICollectionViewDelegate {
         guard let photoHotel = photoHotel else { return }
         guard let infoHotel = infoHotel else { return }
         
-        let detailVC = ModuleBuilder.createDetailModule(dataHotel: infoHotel, imageHotel: photoHotel)
-        
-        present(detailVC, animated: true)
+        presenter.tapOnTheData(modelInfo: infoHotel, modelImage: photoHotel)
     }
 }
 
@@ -111,18 +106,18 @@ extension HotelViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         reloadData(with: searchText)
     }
-    private  func reloadData(with searchText:String?){
+    private func reloadData(with searchText:String?){
         
         guard let filterData = searchText!.isEmpty ? presenter.modelInfo : presenter.modelInfo?.filter({ hotelModel in
             return hotelModel.contains(filter: searchText)
         }) else { return }
         
-        guard let filterPhoto = searchText!.isEmpty ? presenter.modelImage : presenter.modelImage?.filter({ photoModel in
+        guard let filterPhotos = searchText!.isEmpty ? presenter.modelImage : presenter.modelImage?.filter({ photoModel in
             return photoModel.contains(filter: searchText)
         }) else { return }
         
-        self.filterInfo = filterData
-        self.filterPhoto = filterPhoto
+        filterInfo = filterData
+        filterPhoto = filterPhotos
         
         collectionView.reloadData()
     }
@@ -133,64 +128,58 @@ extension HotelViewController: HotelVCProtocolInput{
     func success() {
         collectionView.reloadData()
     }
-    
     func failure(error: Error) {
         showAlert(text: error.localizedDescription)
     }
 }
 
 extension HotelViewController{
-    
     private func showAlert (text: String) {
         
-        let ac = UIAlertController(title: text, message: "", preferredStyle: .alert)
+        let alertController = UIAlertController(title: text, message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default)
-        ac.addAction(action)
-        present(ac, animated: true)
+        alertController.addAction(action)
+        present(alertController, animated: true)
     }
-    
     private func cellConfiguration(cell: HotelCell, indexPath: IndexPath ) -> HotelCell {
-        if let modelInfo = presenter.modelInfo , let modelPhoto = presenter.modelImage {
-            
+        if let modelInfo = presenter.modelInfo , let modelPhoto = presenter.modelImage {            
             let infoHotel:HotelModel?
             let photo:HotelPhotoModel?
-            
+
             if searchController.isActive{
                 guard let filterInfo = filterInfo else { return cell }
                 guard let filterPhoto = filterPhoto else { return cell}
-                infoHotel = filterInfo[indexPath.row]
                 photo = filterPhoto[indexPath.row]
+                infoHotel = filterInfo[indexPath.row]
             }else {
-                infoHotel = modelInfo[indexPath.row]
                 photo = modelPhoto[indexPath.row]
+                infoHotel = modelInfo[indexPath.row]
             }
-            createLoad(activityIndicator: false, false, true)
+            createLoadActInd(activityIndIsVisible: false, collecctionIsVisible: true, viewIsVisible: false)
             
             guard let photo = photo else { return cell}
+            guard let infoHotel = infoHotel else { return cell }
             
             fetchPhoto(model: photo) { [weak self] dataPhoto in
                 DispatchQueue.main.async {
                     cell.hotelImage.image = UIImage(data: dataPhoto)
-                    
-                    self?.createLoad(activityIndicator: true, true, false)
+                    self?.createLoadActInd(activityIndIsVisible: true, collecctionIsVisible: false, viewIsVisible: true)
                 }
             }
-            guard let infoHotel = infoHotel else { return cell}
             cell.hotelName.text = infoHotel.name
         }
         return cell
     }
     
-    private func createLoad(activityIndicator: Bool, _ view: Bool, _ collectionView: Bool) {
-        self.activityIndicator.isHidden = activityIndicator
-        self.view.isUserInteractionEnabled = view
-        self.collectionView.isHidden = collectionView
+    private func createLoadActInd(activityIndIsVisible: Bool, collecctionIsVisible: Bool, viewIsVisible: Bool) {
+        activityIndicator.isHidden = activityIndIsVisible
+        self.view.isUserInteractionEnabled = viewIsVisible
+        self.collectionView.isHidden = collecctionIsVisible
         
-        if activityIndicator{
-            self.activityIndicator.stopAnimating()
+        if activityIndIsVisible {
+            activityIndicator.stopAnimating()
         }else {
-            self.activityIndicator.startAnimating()
+            activityIndicator.startAnimating()
         }
-        
     }
 }

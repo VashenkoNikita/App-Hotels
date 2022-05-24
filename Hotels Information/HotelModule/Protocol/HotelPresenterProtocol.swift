@@ -8,10 +8,9 @@
 import Foundation
 
 protocol HotelPresenterOutputProtocol: AnyObject {
-    init(view: HotelVCProtocolInput, networkService: NetworkManagerProtocol)
-    
-    func getData()
-    
     var modelInfo: [HotelModel]? { get set }
     var modelImage: [HotelPhotoModel]? { get set }
+    
+    init(view: HotelVCProtocolInput, networkService: NetworkManagerProtocol, router: RouterProtocol)
+    func tapOnTheData(modelInfo: HotelModel, modelImage: HotelPhotoModel)
 }
